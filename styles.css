@@ -123,7 +123,7 @@ img {
 .benefits,
 .tariffs,
 .faq {
-  padding: 88px 0;
+  padding: 30px 0;
 }
 
 .hero-grid {
@@ -157,9 +157,8 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 3.0rem);
   line-height: 1;
-  max-width: 14ch;
   margin-bottom: 0;
 }
 
@@ -223,7 +222,6 @@ h2 {
 
 .hero-metrics li,
 .benefit-card,
-.tariff-card,
 .accordion-item,
 .visual-card,
 .site-footer {
@@ -250,7 +248,6 @@ h2 {
 
 .hero-visual {
   position: relative;
-  min-height: 560px;
 }
 
 .visual-card {
@@ -334,7 +331,6 @@ h2 {
 }
 
 .availability-copy h2 {
-  max-width: 11ch;
   margin-bottom: 18px;
 }
 
@@ -390,7 +386,6 @@ h2 {
 }
 
 .benefits-grid,
-.tariff-grid,
 .footer-grid {
   display: grid;
   gap: 24px;
@@ -400,8 +395,7 @@ h2 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.benefit-card,
-.tariff-card {
+.benefit-card {
   border-radius: var(--radius);
   padding: 28px;
 }
@@ -409,46 +403,6 @@ h2 {
 .benefit-card h3 {
   margin-bottom: 12px;
   font-size: 1.3rem;
-}
-
-.tariff-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-}
-
-.tariff-card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.tariff-card-featured {
-  background: linear-gradient(180deg, #183b97 0%, #0f172f 100%);
-  color: #fff;
-  transform: translateY(-12px);
-}
-
-.tariff-card-featured .price,
-.tariff-card-featured .tariff-badge,
-.tariff-card-featured .tariff-features,
-.tariff-card-featured .tariff-features li {
-  color: inherit;
-}
-
-.tariff-badge {
-  display: inline-flex;
-  align-self: flex-start;
-  margin: 0;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(31, 94, 255, 0.12);
-  color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 800;
-}
-
-.tariff-card-featured .tariff-badge {
-  background: rgba(255, 255, 255, 0.12);
 }
 
 .price {
@@ -464,33 +418,174 @@ h2 {
   font-weight: 600;
 }
 
-.tariff-card-featured .price span {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.tariff-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 auto;
-  display: grid;
-  gap: 12px;
-  color: var(--muted);
-}
-
-.tariff-features li {
-  position: relative;
-  padding-left: 22px;
-}
-
-.tariff-features li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 8px;
-  height: 8px;
+.tariffs-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 10px;
   border-radius: 999px;
-  background: var(--primary);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 20px 40px rgba(21, 37, 71, 0.1);
+}
+
+.tariffs-tab {
+  border: 0;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tariffs-tab:hover,
+.tariffs-tab:focus-visible {
+  color: var(--text);
+  background: rgba(16, 32, 60, 0.06);
+  outline: none;
+}
+
+.tariffs-tab.is-active {
+  color: #fff;
+  background: linear-gradient(135deg, #0d2c7a 0%, #1f5eff 100%);
+  box-shadow: 0 14px 24px rgba(31, 94, 255, 0.28);
+}
+
+.promo-tariff-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: var(--shadow);
+}
+
+.promo-tariff-media {
+  position: relative;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 32%),
+    linear-gradient(145deg, #52b4d4 0%, #368ecc 100%);
+}
+
+.promo-ribbon {
+  position: absolute;
+  top: 18px;
+  right: -42px;
+  z-index: 1;
+  width: 160px;
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  background: #e30613;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  box-shadow: 0 12px 24px rgba(227, 6, 19, 0.28);
+}
+
+.promo-media-placeholder {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+}
+
+.promo-media-placeholder span {
+  max-width: 16ch;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.promo-tariff-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 36px;
+}
+
+.promo-tariff-body h3 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.05;
+}
+
+.promo-tariff-subtitle {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.promo-tariff-category,
+.promo-tariff-features,
+.promo-tariff-price {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.promo-tariff-category {
+  color: #8593ab;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.promo-tariff-features {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding-left: 0;
+}
+
+.promo-tariff-features li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.2rem;
+}
+
+.promo-feature-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  color: var(--surface-strong);
+}
+
+.promo-feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.promo-tariff-price {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.promo-old-price {
+  color: #6d778b;
+  font-size: 1.55rem;
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.promo-tariff-button {
+  min-height: 58px;
+  padding: 0 32px;
+  border-radius: 18px;
+  align-self: flex-start;
 }
 
 .faq-layout {
@@ -581,7 +676,6 @@ h2 {
 
 @media (max-width: 1100px) {
   .benefits-grid,
-  .tariff-grid,
   .footer-grid,
   .faq-layout,
   .hero-grid,
@@ -599,10 +693,6 @@ h2 {
 
   .benefits-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .tariff-card-featured {
-    transform: none;
   }
 }
 
@@ -646,6 +736,32 @@ h2 {
   .benefits-grid,
   .availability-form {
     grid-template-columns: 1fr;
+  }
+
+  .tariffs-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+
+  .promo-tariff-card {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-tariff-media {
+    min-height: 260px;
+  }
+
+  .promo-tariff-body {
+    padding: 24px;
+  }
+
+  .promo-tariff-features li {
+    font-size: 1.05rem;
+  }
+
+  .promo-tariff-price {
+    flex-wrap: wrap;
   }
 
   .availability-card,
