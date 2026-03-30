@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TTK Connect - Интернет для дома и бизнеса</title>
+  <meta
+    name="description"
+    content="Подключение домашнего интернета, ТВ и Wi-Fi с быстрым монтажом, стабильной скоростью и прозрачными тарифами."
+  >
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#hero" aria-label="TTK Connect">
+        <img src="img/logo.png" alt="">
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#tariffs">Тарифы</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+78001234567">8 800 123-45-67</a>
+        <a class="button button-primary header-button" href="#contacts">Подключить</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Стабильный интернет, ТВ и Wi-Fi для квартиры, дома и офиса</h1>
+          <p class="hero-text">
+            Подключаем быстро, держим обещанную скорость и предлагаем тарифы без
+            скрытых условий. Оставьте заявку и получите подключение в удобный день.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#tariffs">Выбрать тариф</a>
+            <a class="button button-secondary" href="#faq">Условия подключения</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+            <img src="/img/ChatGPT Image 30 мар. 2026 г., 21_10_15.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="availability-check" id="availability-check">
+      <div class="container">
+        <div class="availability-card">
+          <div class="availability-copy">
+            <p class="eyebrow">Проверка адреса</p>
+            <h2>Проверьте возможность подключения по вашему адресу</h2>
+            <p>
+              Оставьте контакты и адрес, чтобы мы быстро уточнили доступность подключения и предложили подходящий тариф.
+            </p>
+          </div>
+
+          <form class="availability-form">
+            <label class="field">
+              <span>Имя</span>
+              <input type="text" name="name" placeholder="Как к вам обращаться" required>
+            </label>
+
+            <label class="field">
+              <span>Телефон</span>
+              <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+            </label>
+
+            <label class="field field-full">
+              <span>Адрес</span>
+              <input type="text" name="address" placeholder="Город, улица, дом, квартира" required>
+            </label>
+
+            <button class="button button-primary field-full" type="submit">Проверить подключение</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Почему выбирают нас</p>
+          <h2>Провайдер, который закрывает повседневные задачи без компромиссов</h2>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <h3>Надёжная сеть</h3>
+            <p>Современная инфраструктура и стабильный сигнал в часы пиковой нагрузки.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Честные тарифы</h3>
+            <p>Фиксированная цена, понятные условия и удобный выбор скорости.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Быстрое подключение</h3>
+            <p>Согласуем дату, заведём кабель и настроим оборудование без лишних визитов.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Поддержка 24/7</h3>
+            <p>Помогаем с настройкой роутера, ТВ и диагностикой соединения в любое время.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tariffs" id="tariffs">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Тарифы</p>
+          <h2>Выберите подходящий пакет для дома или работы</h2>
+        </div>
+
+        <div class="tariff-grid">
+          <article class="tariff-card">
+            <p class="tariff-badge">Старт</p>
+            <h3>Для повседневных задач</h3>
+            <p class="price">590 ₽<span>/мес</span></p>
+            <ul class="tariff-features">
+              <li>До 100 Мбит/с</li>
+              <li>Wi-Fi для квартиры</li>
+              <li>Подключение за 1 день</li>
+            </ul>
+            <a class="button button-primary" href="#contacts">Подключить</a>
+          </article>
+
+          <article class="tariff-card tariff-card-featured">
+            <p class="tariff-badge">Хит</p>
+            <h3>Для семьи и Smart TV</h3>
+            <p class="price">790 ₽<span>/мес</span></p>
+            <ul class="tariff-features">
+              <li>До 300 Мбит/с</li>
+              <li>ТВ-пакет и онлайн-кинотеатры</li>
+              <li>Роутер в аренду</li>
+            </ul>
+            <a class="button button-primary" href="#contacts">Оставить заявку</a>
+          </article>
+
+          <article class="tariff-card">
+            <p class="tariff-badge">Максимум</p>
+            <h3>Для гейминга и офиса</h3>
+            <p class="price">1190 ₽<span>/мес</span></p>
+            <ul class="tariff-features">
+              <li>До 1000 Мбит/с</li>
+              <li>Приоритетная поддержка</li>
+              <li>Статический IP по запросу</li>
+            </ul>
+            <a class="button button-primary" href="#contacts">Выбрать</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container faq-layout">
+        <div class="section-heading faq-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Частые вопросы о подключении и обслуживании</h2>
+          <p>
+            Если понадобится, вы можете заменить тексты на свои или добавить больше
+            пунктов в этот список.
+          </p>
+        </div>
+
+        <div class="accordion" aria-label="Частые вопросы">
+          <details class="accordion-item" open>
+            <summary>Как быстро происходит подключение?</summary>
+            <p>
+              В большинстве случаев мастер приезжает в течение 1-2 дней после заявки.
+              Время зависит от адреса и доступности монтажных окон.
+            </p>
+          </details>
+
+          <details class="accordion-item">
+            <summary>Можно ли подключить интернет и ТВ одновременно?</summary>
+            <p>
+              Да, вы можете выбрать комбинированный тариф или отдельно подключить ТВ,
+              если по адресу уже есть доступ к сети провайдера.
+            </p>
+          </details>
+
+          <details class="accordion-item">
+            <summary>Нужно ли покупать роутер?</summary>
+            <p>
+              Не обязательно. Можно использовать своё оборудование или оформить аренду
+              роутера с настройкой при подключении.
+            </p>
+          </details>
+
+          <details class="accordion-item">
+            <summary>Что делать, если интернет работает нестабильно?</summary>
+            <p>
+              Оставьте обращение в поддержку: специалисты проведут диагностику линии,
+              помогут с настройкой роутера и при необходимости назначат выезд инженера.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo footer-logo" href="#hero">
+          <span class="logo-mark">T</span>
+          <span class="logo-text">TTK Connect</span>
+        </a>
+        <p class="footer-text">
+          Подключение домашнего интернета и цифровых сервисов с удобной поддержкой и
+          прозрачными условиями.
+        </p>
+      </div>
+
+      <div>
+        <h3>Контакты</h3>
+        <ul class="footer-list">
+          <li><a href="tel:+78001234567">8 800 123-45-67</a></li>
+          <li><a href="mailto:info@ttk-connect.ru">info@ttk-connect.ru</a></li>
+          <li>г. Москва, ул. Примерная, 12</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Разделы</h3>
+        <ul class="footer-list">
+          <li><a href="#tariffs">Тарифы</a></li>
+          <li><a href="#benefits">Преимущества</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
