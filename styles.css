@@ -546,8 +546,9 @@ h2 {
 
 .promo-tariff-category,
 .promo-tariff-features,
-.promo-tariff-price {
-  padding-top: 22px;
+.promo-tariff-price,
+.promo-tariff-equipment {
+  padding-top: 15px;
   border-top: 1px solid var(--line);
 }
 
@@ -590,6 +591,51 @@ h2 {
   display: flex;
   align-items: flex-end;
   gap: 14px;
+}
+
+.promo-tariff-equipment {
+  display: grid;
+  gap: 18px;
+}
+
+.promo-equipment-group {
+  display: grid;
+  gap: 12px;
+}
+
+.promo-equipment-title {
+  margin: 0;
+  color: #e30613;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.promo-equipment-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.promo-equipment-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.promo-equipment-choice input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #e30613;
+}
+
+.promo-equipment-price {
+  color: #6d778b;
+  white-space: nowrap;
 }
 
 .promo-old-price {
@@ -675,12 +721,48 @@ h2 {
 }
 
 .footer-grid {
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1.4fr) auto;
   align-items: start;
 }
 
 .footer-logo {
   margin-bottom: 16px;
+}
+
+.footer-brand {
+  max-width: 560px;
+}
+
+.footer-contact-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-call-button {
+  min-height: 50px;
+  padding: 0 26px;
+}
+
+.footer-phone {
+  font-size: 1.25rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.footer-legal {
+ 
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-legal-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .footer-list {
@@ -781,6 +863,15 @@ h2 {
     flex-wrap: wrap;
   }
 
+  .promo-equipment-option {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .promo-equipment-price {
+    padding-left: 26px;
+  }
+
   .availability-card,
   .availability-form {
     padding: 24px;
@@ -797,5 +888,9 @@ h2 {
 
   .site-footer {
     margin-bottom: 16px;
+  }
+
+  .footer-contact-block {
+    justify-content: flex-start;
   }
 }
