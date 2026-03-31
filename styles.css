@@ -129,7 +129,7 @@ img {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  gap: 32px;
+  gap: 30px;
   align-items: start;
 }
 
@@ -177,7 +177,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin: 32px 0 36px;
+  margin: 24px 0 30px;
 }
 
 .button {
@@ -292,7 +292,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .availability-check {
@@ -304,7 +304,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: 28px;
-  padding: 40px;
+  padding: 30px;
   border-radius: 36px;
   overflow: hidden;
   background:
@@ -527,7 +527,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 22px;
-  padding: 36px;
+  padding: 30px;
   height: 100%;
 }
 
@@ -714,10 +714,10 @@ h2 {
 }
 
 .site-footer {
-  margin: 0 auto 28px;
+  margin: 0 auto 24px;
   width: var(--container);
   border-radius: 36px;
-  padding: 36px 0;
+  padding: 30px 0;
 }
 
 .footer-grid {
@@ -808,21 +808,30 @@ h2 {
 
   .header-inner {
     min-height: auto;
-    padding: 18px 0;
+    padding: 16px 0;
     flex-wrap: wrap;
+    gap: 16px;
   }
 
   .main-nav {
     order: 3;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 12px;
     font-size: 0.92rem;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .header-actions {
     width: 100%;
     justify-content: space-between;
+    gap: 12px;
   }
 
   .hero,
@@ -830,11 +839,31 @@ h2 {
   .benefits,
   .tariffs,
   .faq {
-    padding: 64px 0;
+    padding: 30px 0;
   }
 
   h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
     max-width: none;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
+    line-height: 1.05;
+  }
+
+  .hero-grid {
+    gap: 24px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+    margin: 20px 0 24px;
+  }
+
+  .hero-actions .button,
+  .header-button {
+    width: 100%;
   }
 
   .hero-metrics,
@@ -847,8 +876,24 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .tariffs-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-radius: 24px;
+  }
+
+  .tariffs-tab {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    padding: 0 18px;
+  }
+
   .promo-tariff-media {
-    min-height: 260px;
+    min-height: 220px;
   }
 
   .promo-tariff-body {
@@ -877,6 +922,24 @@ h2 {
     padding: 24px;
   }
 
+  .availability-card,
+  .faq-layout,
+  .footer-grid {
+    gap: 24px;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .accordion-item {
+    padding: 22px 20px;
+  }
+
+  .accordion-item p {
+    padding-right: 0;
+  }
+
   .visual-main {
     inset: 0 40px 70px 0;
   }
@@ -892,5 +955,90 @@ h2 {
 
   .footer-contact-block {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: start;
+    justify-content: space-between;
+    gap: 12px 16px;
+  }
+
+  .header-actions {
+    width: auto;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header-button {
+    width: auto;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    order: initial;
+  }
+
+  .logo img {
+    height: 34px;
+  }
+
+  .hero-visual {
+    min-height: 0px;
+  }
+
+  .header-phone,
+  .footer-phone {
+    font-size: 1.05rem;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 18px;
+  }
+
+  .hero-grid,
+  .benefits-grid,
+  .tariffs-grid,
+  .accordion,
+  .footer-grid,
+  .faq-layout {
+    gap: 20px;
+  }
+
+  .availability-card,
+  .availability-form,
+  .promo-tariff-body,
+  .benefit-card,
+  .accordion-item,
+  .site-footer {
+    padding: 20px;
+  }
+
+  .promo-tariff-price {
+    gap: 10px;
+  }
+
+  .price {
+    font-size: 2.35rem;
+  }
+
+  .promo-equipment-choice,
+  .promo-equipment-option {
+    gap: 8px;
+  }
+
+  .footer-contact-block {
+    gap: 12px;
   }
 }
