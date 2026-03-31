@@ -458,17 +458,25 @@ h2 {
 
 .promo-tariff-card {
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: 1fr;
   overflow: hidden;
   border-radius: 32px;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow: var(--shadow);
+  height: 100%;
+}
+
+.tariffs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
 }
 
 .promo-tariff-media {
   position: relative;
-  min-height: 100%;
+  min-height: 210px;
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 32%),
     linear-gradient(145deg, #52b4d4 0%, #368ecc 100%);
@@ -512,12 +520,14 @@ h2 {
   flex-direction: column;
   gap: 22px;
   padding: 36px;
+  height: 100%;
 }
 
 .promo-tariff-body h3 {
   margin-bottom: 0;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  line-height: 1.05;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.15;
+  
 }
 
 .promo-tariff-subtitle {
@@ -586,6 +596,7 @@ h2 {
   padding: 0 32px;
   border-radius: 18px;
   align-self: flex-start;
+  margin-top: auto;
 }
 
 .faq-layout {
@@ -694,6 +705,10 @@ h2 {
   .benefits-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .tariffs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 780px) {
@@ -738,13 +753,7 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .tariffs-tabs {
-    display: grid;
-    grid-template-columns: 1fr;
-    border-radius: 24px;
-  }
-
-  .promo-tariff-card {
+  .tariffs-grid {
     grid-template-columns: 1fr;
   }
 
