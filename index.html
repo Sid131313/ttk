@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -28,13 +28,60 @@
         <a href="#tariffs">Тарифы</a>
         <a href="#benefits">Преимущества</a>
         <a href="#faq">Вопросы</a>
-        <a href="#contacts">Контакты</a>
       </nav>
 
       <div class="header-actions">
         <a class="header-phone" href="tel:+78001234567">8 800 123-45-67</a>
-        <a class="button button-primary header-button" href="#contacts">Подключить</a>
+        <button class="button button-secondary header-chip header-city" type="button" aria-haspopup="dialog" aria-controls="city-modal" aria-expanded="false">
+          <span class="header-chip-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s6-5.29 6-11a6 6 0 1 0-12 0c0 5.71 6 11 6 11Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path>
+              <circle cx="12" cy="10" r="2.5" fill="currentColor"></circle>
+            </svg>
+          </span>
+          <span class="header-city-label">Выбрать город</span>
+        </button>
+        <a class="button button-secondary header-chip" href="tel:+78007750775" aria-label="Позвонить в техподдержку по номеру 8 800 775 07 75">
+          <span class="header-chip-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+              <rect x="3" y="12" width="4" height="7" rx="2" stroke="currentColor" stroke-width="1.9"></rect>
+              <rect x="17" y="12" width="4" height="7" rx="2" stroke="currentColor" stroke-width="1.9"></rect>
+              <path d="M12 19v2h3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <span>Техподдержка</span>
+        </a>
+        <button
+          class="button button-primary header-button"
+          type="button"
+          data-modal-trigger="callback-modal"
+          aria-haspopup="dialog"
+          aria-controls="callback-modal"
+          aria-expanded="false"
+        >
+          Заказать звонок
+        </button>
+        <button
+          class="header-burger"
+          type="button"
+          aria-label="Открыть меню навигации"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+    </div>
+    <div class="container">
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация" hidden>
+        <a href="#tariffs">Тарифы</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#faq">Вопросы</a>
+        <a class="mobile-nav-phone" href="tel:+78001234567">8 800 123-45-67</a>
+      </nav>
     </div>
   </header>
 
@@ -87,36 +134,16 @@
               <input type="text" name="address" placeholder="Город, улица, дом, квартира" required>
             </label>
 
+            <label class="consent-field field-full">
+              <input type="checkbox" name="privacy-consent" checked required>
+              <span>
+                Я даю согласие на обработку персональных данных и соглашаюсь с
+                <a class="consent-link" href="privacy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>
+              </span>
+            </label>
+
             <button class="button button-primary field-full" type="submit">Проверить подключение</button>
           </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="benefits" id="benefits">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Почему выбирают нас</p>
-          <h2>Провайдер, который закрывает повседневные задачи</h2>
-        </div>
-
-        <div class="benefits-grid">
-          <article class="benefit-card">
-            <h3>Надёжная сеть</h3>
-            <p>Современная инфраструктура и стабильный сигнал в часы пиковой нагрузки.</p>
-          </article>
-          <article class="benefit-card">
-            <h3>Честные тарифы</h3>
-            <p>Фиксированная цена, понятные условия и удобный выбор скорости.</p>
-          </article>
-          <article class="benefit-card">
-            <h3>Быстрое подключение</h3>
-            <p>Согласуем дату, заведём кабель и настроим оборудование без лишних визитов.</p>
-          </article>
-          <article class="benefit-card">
-            <h3>Поддержка 24/7</h3>
-            <p>Помогаем с настройкой роутера, ТВ и диагностикой соединения в любое время.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -429,6 +456,34 @@
       </div>
     </section>
 
+    <section class="benefits" id="benefits">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Почему выбирают нас</p>
+          <h2>Провайдер, который закрывает повседневные задачи</h2>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <h3>Надёжная сеть</h3>
+            <p>Современная инфраструктура и стабильный сигнал в часы пиковой нагрузки.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Честные тарифы</h3>
+            <p>Фиксированная цена, понятные условия и удобный выбор скорости.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Быстрое подключение</h3>
+            <p>Согласуем дату, заведём кабель и настроим оборудование без лишних визитов.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Поддержка 24/7</h3>
+            <p>Помогаем с настройкой роутера, ТВ и диагностикой соединения в любое время.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="faq" id="faq">
       <div class="container faq-layout">
         <div class="section-heading faq-heading">
@@ -486,18 +541,76 @@
       </div>
 
       <div class="footer-contact-block">
-        <a class="button button-primary footer-call-button" href="#availability-check">Заказать звонок</a>
+        <button
+          class="button button-primary footer-call-button"
+          type="button"
+          data-modal-trigger="callback-modal"
+          aria-haspopup="dialog"
+          aria-controls="callback-modal"
+          aria-expanded="false"
+        >
+          Заказать звонок
+        </button>
         <a class="footer-phone" href="tel:+78001234567">8 800 123-45-67</a>
       </div>
     </div>
 
     <div class="container footer-legal">
       <p class="footer-legal-text">
-        Вся информация на сайте размещена на основании партнерского договора с ООО «ТТК-Связь». Посещая сайт https://ттк.рф/, Вы предоставляете согласие на обработку данных (данные cookies и иные пользовательские данные), сбор которых осуществляется на условиях Политики обработки персональных данных. Указанные данные могут быть использованы для их последующей обработки системами Google Analytics, Яндекс.Метрика и др., которая осуществляется с целью функционирования сайта https://ттк.рф/. Отправляя заявку, Вы принимаете Политику конфиденциальности и даёте согласие на обработку Ваших персональных данных
+        Вся информация на сайте размещена на основании партнерского договора с ООО «ТТК-Связь». Посещая сайт https://ттк.рф/, Вы предоставляете согласие на обработку данных (данные cookies и иные пользовательские данные), сбор которых осуществляется на условиях <a href="privacy.html">Политики обработки персональных данных</a>. Указанные данные могут быть использованы для их последующей обработки системами Google Analytics, Яндекс.Метрика и др., которая осуществляется с целью функционирования сайта https://ттк.рф/. Отправляя заявку, Вы принимаете <a href="privacy.html">Политику конфиденциальности</a> и даёте согласие на обработку Ваших персональных данных.
       </p>
     </div>
   </footer>
 
+  <div class="city-modal" id="city-modal" role="dialog" aria-modal="true" aria-labelledby="city-modal-title" hidden>
+    <div class="city-modal-backdrop" data-city-close></div>
+    <div class="city-modal-dialog">
+      <button class="city-modal-close" type="button" aria-label="Закрыть окно выбора города" data-city-close>
+        <span aria-hidden="true">×</span>
+      </button>
+      <p class="eyebrow city-modal-eyebrow">География подключения</p>
+      <h2 class="city-modal-title" id="city-modal-title">Выберите ваш город</h2>
+      <label class="city-search" for="city-search-input">
+        <span class="city-search-label">Поиск по городу</span>
+        <input class="city-search-input" id="city-search-input" type="search" placeholder="Начните вводить название города">
+      </label>
+      <div class="city-modal-list" id="city-modal-list" aria-label="Список городов"></div>
+    </div>
+  </div>
+
+  <div class="callback-modal" id="callback-modal" role="dialog" aria-modal="true" aria-labelledby="callback-modal-title" hidden>
+    <div class="callback-modal-backdrop" data-modal-close></div>
+    <div class="callback-modal-dialog">
+      <button class="callback-modal-close" type="button" aria-label="Закрыть окно заказа звонка" data-modal-close>
+        <span aria-hidden="true">×</span>
+      </button>
+      <p class="eyebrow callback-modal-eyebrow">Заказать звонок</p>
+      <h2 class="callback-modal-title" id="callback-modal-title">Оставьте контакты, и мы вам перезвоним</h2>
+      <form class="callback-form">
+        <label class="callback-field">
+          <span>Имя</span>
+          <input type="text" name="callback-name" placeholder="Как к вам обращаться" required>
+        </label>
+
+        <label class="callback-field">
+          <span>Телефон</span>
+          <input type="tel" name="callback-phone" placeholder="+7 (999) 123-45-67" required>
+        </label>
+
+        <label class="callback-consent">
+          <input type="checkbox" name="callback-consent" checked required>
+          <span>
+            Я даю согласие на обработку персональных данных и соглашаюсь с
+            <a class="consent-link callback-consent-link" href="privacy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>
+          </span>
+        </label>
+
+        <button class="button button-primary callback-submit" type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
