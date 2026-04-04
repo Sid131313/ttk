@@ -564,6 +564,28 @@ function splitTariffsByCategory(tariffs) {
   return groups;
 }
 
+function moveGponToEnd(items) {
+  return [...items].sort((a, b) => {
+    const nameA = getField(a, [
+      "Название тарифа",
+      "Тариф",
+      "Наименование тарифа"
+    ]);
+
+    const nameB = getField(b, [
+      "Название тарифа",
+      "Тариф",
+      "Наименование тарифа"
+    ]);
+
+    const aHasGpon = normalizeText(nameA).includes("gpon");
+    const bHasGpon = normalizeText(nameB).includes("gpon");
+
+    if (aHasGpon === bHasGpon) return 0;
+    return aHasGpon ? 1 : -1;
+  });
+}
+
 function filterTariffsByCity(city) {
   const normalizedCity = normalizeText(city);
 
@@ -593,17 +615,21 @@ function renderTariffsByCity(city) {
   const cityTariffs = filterTariffsByCity(city);
   const grouped = splitTariffsByCategory(cityTariffs);
 
-  comboGrid.innerHTML = grouped.combo.length
-    ? grouped.combo.map((row, index) => renderTariffCard(row, "combo", index)).join("")
-    : renderEmptyMessage("Для выбранного города пакетные тарифы не найдены.");
+const comboTariffs = moveGponToEnd(grouped.combo);
+const internetTariffs = moveGponToEnd(grouped.internet);
+const tvTariffs = moveGponToEnd(grouped.tv);
 
-  internetGrid.innerHTML = grouped.internet.length
-    ? grouped.internet.map((row, index) => renderTariffCard(row, "internet", index)).join("")
-    : renderEmptyMessage("Для выбранного города тарифы на интернет не найдены.");
+comboGrid.innerHTML = comboTariffs.length
+  ? comboTariffs.map((row, index) => renderTariffCard(row, "combo", index)).join("")
+  : renderEmptyMessage("Для выбранного города пакетные тарифы не найдены.");
 
-  tvGrid.innerHTML = grouped.tv.length
-    ? grouped.tv.map((row, index) => renderTariffCard(row, "tv", index)).join("")
-    : renderEmptyMessage("Для выбранного города тарифы на ТВ не найдены.");
+internetGrid.innerHTML = internetTariffs.length
+  ? internetTariffs.map((row, index) => renderTariffCard(row, "internet", index)).join("")
+  : renderEmptyMessage("Для выбранного города тарифы на интернет не найдены.");
+
+tvGrid.innerHTML = tvTariffs.length
+  ? tvTariffs.map((row, index) => renderTariffCard(row, "tv", index)).join("")
+  : renderEmptyMessage("Для выбранного города тарифы на ТВ не найдены.");
 }
 
 async function loadTariffs() {
