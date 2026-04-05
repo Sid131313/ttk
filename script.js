@@ -206,7 +206,15 @@ function parseTSV(tsv) {
 
   if (!lines.length) return [];
 
-  const headers = parseTSVLine(lines[0]);
+  const rawHeaders = parseTSVLine(lines[0]);
+  const headerCounts = new Map();
+  const headers = rawHeaders.map((header) => {
+    const normalizedHeader = String(header || "").trim();
+    const nextCount = (headerCounts.get(normalizedHeader) || 0) + 1;
+    headerCounts.set(normalizedHeader, nextCount);
+
+    return nextCount === 1 ? normalizedHeader : `${normalizedHeader}__${nextCount}`;
+  });
 
   return lines.slice(1).map((line) => {
     const values = parseTSVLine(line);
@@ -455,6 +463,42 @@ function renderEquipment(row, slug) {
   `;
 }
 
+function renderPriceIncrease(row) {
+  const increaseMonth = getField(row, [
+    "С какого месяца",
+    "С какого месяца.",
+    "Месяц повышения"
+  ]);
+
+  const increasedPrice = getField(row, [
+    "АП с момента повышения руб./мес.",
+    "АП с момента повышения руб./мес",
+    "АП с момента повышения, руб./мес.",
+    "Абонентская плата с момента повышения руб./мес."
+  ]);
+
+  const normalizeOptionalValue = (value) =>
+    normalizeText(value)
+      .replace(/\./g, "")
+      .replace(/\s+/g, "");
+  const extractDigits = (value) => String(value || "").replace(/\D/g, "");
+
+  if (!increaseMonth || !increasedPrice) return "";
+  if (normalizeOptionalValue(increaseMonth) === "нет") return "";
+  if (normalizeOptionalValue(increasedPrice) === "нет") return "";
+
+  const monthNumber = extractDigits(increaseMonth);
+  const increasedPriceNumber = extractDigits(increasedPrice);
+
+  if (!monthNumber || !increasedPriceNumber) return "";
+
+  return `
+    <p class="promo-tariff-price-increase">
+      с ${escapeHtml(monthNumber)} месяца — ${escapeHtml(increasedPriceNumber)} ₽/мес
+    </p>
+  `;
+}
+
 function renderTariffCard(row, category, index) {
   const tariffName = getField(row, [
     "Название тарифа",
@@ -509,6 +553,8 @@ function renderTariffCard(row, category, index) {
             <span>руб./мес.</span>
           </p>
         </div>
+
+        ${renderPriceIncrease(row)}
 
         <p class="promo-tariff-connection">
           Стоимость подключения:
